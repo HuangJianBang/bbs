@@ -46,31 +46,20 @@ public class User {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPassword(String password) {
+        this.password = password;
     }
-
-//    public String getPhone() {
-//        return phone;
-//    }
-//
-//    public void setPhone(String phone) {
-//        this.phone = phone;
-//    }
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-//    public String getAvater() {
-//        return avater;
-//    }
-//
-//    public void setAvater(String avater) {
-//        this.avater = avater;
-//    }
+    public String getPhone() {
+        return phone;
+    }
 }
