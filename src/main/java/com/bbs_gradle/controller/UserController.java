@@ -1,7 +1,7 @@
-package bbs_gradle.bbs.controller;
+package com.bbs_gradle.controller;
 
-import bbs_gradle.bbs.dao.UserRepository;
-import bbs_gradle.bbs.model.User;
+import com.bbs_gradle.repository.UserRepository;
+import com.bbs_gradle.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;

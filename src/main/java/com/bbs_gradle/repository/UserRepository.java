@@ -1,6 +1,6 @@
-package bbs_gradle.bbs.dao;
+package com.bbs_gradle.repository;
 
-import bbs_gradle.bbs.model.User;
+import com.bbs_gradle.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

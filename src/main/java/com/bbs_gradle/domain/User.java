@@ -1,4 +1,6 @@
-package bbs_gradle.bbs.model;
+package com.bbs_gradle.domain;
+
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -46,20 +48,31 @@ public class User {
         return name;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setName(String name) {
+        this.name = name;
     }
+
+//    public String getPhone() {
+//        return phone;
+//    }
+//
+//    public void setPhone(String phone) {
+//        this.phone = phone;
+//    }
 
     public String getPassword() {
         return password;
     }
 
-
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getPhone() {
-        return phone;
-    }
+//    public String getAvater() {
+//        return avater;
+//    }
+//
+//    public void setAvater(String avater) {
+//        this.avater = avater;
+//    }
 }
