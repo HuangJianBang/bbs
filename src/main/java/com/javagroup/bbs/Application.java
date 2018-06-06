@@ -1,12 +1,12 @@
-package bbs_gradle.bbs;
+package com.javagroup.bbs;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BbsApplication {
+public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(BbsApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 }
