@@ -1,4 +1,4 @@
-package com.javagroup.bbs;
+package bbs_gradle.bbs;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

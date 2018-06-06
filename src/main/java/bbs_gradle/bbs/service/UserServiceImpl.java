@@ -1,7 +1,7 @@
-package com.javagroup.bbs.service;
+package bbs_gradle.bbs.service;
 
-import com.javagroup.bbs.domain.User;
-import com.javagroup.bbs.repository.UserRepository;
+import bbs_gradle.bbs.repository.UserRepository;
+import bbs_gradle.bbs.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

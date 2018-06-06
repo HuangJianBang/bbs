@@ -1,4 +1,4 @@
-package com.javagroup.bbs;
+package bbs_gradle.bbs;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

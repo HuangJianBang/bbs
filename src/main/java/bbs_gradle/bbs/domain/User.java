@@ -1,13 +1,11 @@
-package com.javagroup.bbs.domain;
-
-import org.springframework.security.core.userdetails.UserDetails;
+package bbs_gradle.bbs.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 @Entity
-public class User implements UserDetails {
+public class User {
     @Id                                                     // 主键
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

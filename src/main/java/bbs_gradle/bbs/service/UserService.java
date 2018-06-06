@@ -1,6 +1,6 @@
-package com.javagroup.bbs.service;
+package bbs_gradle.bbs.service;
 
-import com.javagroup.bbs.domain.User;
+import bbs_gradle.bbs.domain.User;
 
 
 import java.util.Optional;

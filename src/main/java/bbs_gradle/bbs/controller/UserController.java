@@ -1,14 +1,11 @@
-package com.javagroup.bbs.controller;
+package bbs_gradle.bbs.controller;
 
-import com.javagroup.bbs.domain.User;
-import com.javagroup.bbs.repository.UserRepository;
+import bbs_gradle.bbs.repository.UserRepository;
+import bbs_gradle.bbs.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/users")

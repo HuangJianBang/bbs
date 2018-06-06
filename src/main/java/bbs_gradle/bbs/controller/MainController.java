@@ -1,6 +1,6 @@
-package com.javagroup.bbs.controller;
+package bbs_gradle.bbs.controller;
 
-import com.javagroup.bbs.domain.User;
+import bbs_gradle.bbs.domain.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
