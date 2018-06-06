@@ -1,4 +1,4 @@
-package com.javagroup.bbs.security;
+package com.bbs_gradle.security;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +14,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private UserDetailsService userDetailsService;
+//    @Autowired
+//    private UserDetailsService userDetailsService;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -32,11 +32,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .permitAll();
     }
 
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService);
-        auth.authenticationProvider(authenticationProvider());
-
-    }
+//    @Autowired
+//    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.userDetailsService(userDetailsService);
+//        auth.authenticationProvider(authenticationProvider());
+//
+//    }
 
 }

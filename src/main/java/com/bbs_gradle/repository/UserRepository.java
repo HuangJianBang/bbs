@@ -1,11 +1,8 @@
-package com.javagroup.bbs.repository;
+package com.bbs_gradle.repository;
 
-import com.javagroup.bbs.domain.User;
-import org.springframework.data.domain.Page;
+import com.bbs_gradle.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import java.awt.print.Pageable;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
