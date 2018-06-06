@@ -1,4 +1,4 @@
-package bbs_gradle.bbs.security;
+package bbs_gradle.bbs.config;
 
 
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -16,7 +16,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                    .antMatchers("/css/**", "/js/**", "/fonts/**", "/**").permitAll()
+                    .antMatchers("/css/**", "/js/**", "/fonts/**").permitAll()
                     .anyRequest().authenticated()
                     .and()
                 .formLogin()

@@ -1,7 +1,7 @@
 package bbs_gradle.bbs.service;
 
-import bbs_gradle.bbs.repository.UserRepository;
-import bbs_gradle.bbs.domain.User;
+import bbs_gradle.bbs.dao.UserRepository;
+import bbs_gradle.bbs.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

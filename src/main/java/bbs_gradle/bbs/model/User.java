@@ -1,4 +1,4 @@
-package bbs_gradle.bbs.domain;
+package bbs_gradle.bbs.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;

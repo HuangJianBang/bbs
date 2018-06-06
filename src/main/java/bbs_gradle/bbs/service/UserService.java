@@ -1,6 +1,6 @@
 package bbs_gradle.bbs.service;
 
-import bbs_gradle.bbs.domain.User;
+import bbs_gradle.bbs.model.User;
 
 
 import java.util.Optional;
