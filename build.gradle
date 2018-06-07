@@ -32,12 +32,12 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
     compile('org.springframework.boot:spring-boot-starter-web')
 
-    
+    compile('org.springframework.boot:spring-boot-starter-security')
     compile('org.springframework.boot:spring-boot-starter-config')
     compile('org.thymeleaf.extras:thymeleaf-extras-springsecurity4')
 
     compile('org.apache.commons:commons-lang3:3.5')
-    runtime('com.h2database:h2')
+//    runtime('com.h2database:h2')
     runtime('mysql:mysql-connector-java')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }

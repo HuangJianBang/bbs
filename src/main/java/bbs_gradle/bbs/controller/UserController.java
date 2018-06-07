@@ -19,8 +19,8 @@ public class UserController {
         return "redirect:/";
     }
 
-    @PostMapping("/login")
-    public String login() {
-        return null;
-    }
+//    @PostMapping("/login")
+//    public String login() {
+//        return null;
+//    }
 }

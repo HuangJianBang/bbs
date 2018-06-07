@@ -20,19 +20,17 @@ public class User {
 //    private String phone;
 
     private String password;
+    private String phone;
 
-//    @Column(length = 200)
-//    private String avater;
 
     protected User() {
     }
 
-//    public User(String name, String password, String avater, String phone) {
-//        this.name = name;
-//        this.password = password;
-//        this.avater = avater;
-//        this.phone = phone;
-//    }
+    public User(String name, String password, String phone) {
+        this.name = name;
+        this.password = password;
+        this.phone = phone;
+    }
 
     public Long getId() {
         return id;

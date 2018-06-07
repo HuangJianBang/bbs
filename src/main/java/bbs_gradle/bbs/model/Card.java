@@ -9,16 +9,23 @@ import javax.persistence.Id;
 public class Card {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-    private int userId;
-    private int level;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private int userId = 22;
+    private int level = 1;
     private String content;
+    private boolean mark = false;
 
-    public void setId(int id) {
+    public void setMark(boolean mark) {
+        this.mark = mark;
+    }public boolean getMark() {
+        return this.mark;
+    }
+
+    public void setId(Long id) {
         this.id = id;
     }
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
