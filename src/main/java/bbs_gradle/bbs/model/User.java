@@ -12,15 +12,17 @@ public class User {
 
     @NotEmpty(message = "名字不能为空")
     @Size(min=2, max = 10)
-    @Column(nullable = false, length = 10)
-    private String name;
+    @Column(nullable = false, length = 10, unique = true)
+    private String username;
 
-//    @NotEmpty(message = "电话不能为空")
-//    @Column(nullable = false, unique = true)
-//    private String phone;
+    @NotEmpty(message = "电话不能为空")
+    @Size(min=11, max = 20)
+    @Column(nullable = false, unique = true)
+    private String phone;
 
     private String password;
     private String phone;
+
 
 
     protected User() {
@@ -40,9 +42,14 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
 
     public void setPassword(String password) {
         this.password = password;
@@ -57,7 +64,11 @@ public class User {
         this.phone = phone;
     }
 
+
+
+
     public String getPhone() {
         return phone;
     }
+
 }

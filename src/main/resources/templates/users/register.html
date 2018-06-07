@@ -1,10 +1,78 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="no-js" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>你的标题</title>
+
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileColor" content="#0e90d2">
+
+    <!-- Amaze UI CSS -->
+    <link rel="stylesheet" href="//cdn.amazeui.org/amazeui/2.1.0/css/amazeui.min.css">
+
 </head>
 <body>
+<div th:replace="fragments/header :: header"></div>
+
+<div class="am-g">
+    <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
+        <h3>注册</h3>
+        <hr>
+        <br>
+
+        <form method="post" class="am-form" th:action="@{/users/register}" th:object="${user}">
+            <label for="name">用户名:</label>
+            <input type="text" name="" id="username" th:field="*{username}">
+            <br>
+            <label for="name">手机号:</label>
+            <input type="text" name="" id="phone" th:field="*{phone}">
+            <br>
+            <label for="password">密码:</label>
+            <input type="password" name="" id="password" th:field="*{password}">
+            <br>
+            <br />
+            <div class="am-cf">
+                <input type="submit" name="" value="注 册" class="am-btn am-btn-primary am-btn-sm am-fl">
+            </div>
+        </form>
+        <hr>
+        <p>© 2018 AllMobilize, Inc. Licensed under MIT license.</p>
+    </div>
+</div>
+
+<!--[if lt IE 9]>
+<script src="//cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="//cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="/js/polyfill/rem.min.js"></script>
+<script src="//libs.useso.com/js/respond.js/1.4.2/respond.min.js"></script>
+<script src="//cdn.amazeui.org/amazeui/2.1.0/js/amazeui.legacy.min.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="//cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="//cdn.amazeui.org/amazeui/2.1.0/js/amazeui.min.js"></script>
+<!--<![endif]-->
 
 </body>
 </html>

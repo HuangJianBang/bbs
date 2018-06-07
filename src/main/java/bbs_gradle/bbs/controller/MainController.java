@@ -28,10 +28,15 @@ public class MainController {
         return "index";
     }
 
-    @GetMapping("/register")
-    public String index() {
-        return ("index");
+    @GetMapping("/login")
+    public String login(User user) {
+        return "/users/login";
     }
+
+    @GetMapping("/register")
+    public String register(User user) {
+        return "/users/register";
+}
     @PostMapping("/register")
     public String register(Card card) {
        cardService.addCard(card);
