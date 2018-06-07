@@ -21,6 +21,18 @@ public class User {
     private String phone;
 
     private String password;
+    private String phone;
+
+
+
+    protected User() {
+    }
+
+    public User(String name, String password, String phone) {
+        this.name = name;
+        this.password = password;
+        this.phone = phone;
+    }
 
     public Long getId() {
         return id;
@@ -38,24 +50,25 @@ public class User {
         this.username = username;
     }
 
-    public String getPhone() {
-        return phone;
-    }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
 
-    protected User() {
+
+
+    public String getPhone() {
+        return phone;
     }
 
 }

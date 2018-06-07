@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html class="no-js"
       xmlns:th="http://www.thymeleaf.org"
@@ -33,3 +34,21 @@
 <body>
 <div th:replace="fragments/header :: header"></div>
 <div th:replace="fragments/footer :: footer"></div>
+<main th:each="card : ${cards}">
+    <section>
+        <div th:text="${card.content}"></div>
+        <p th:text="${card.userId}">userId:</p>
+        <span th:text="${card.level}">level:</span>
+        <span th:text="${card.mark}">是否精品文件:</span>
+    </section>
+</main>
+<hr>
+<div>
+    <form action="" th:action="@{/addcard}" method="POST">
+        <textarea name="content" id="content" cols="30" rows="10"></textarea>
+        <input type="submit" th:value="提交">
+    </form>
+</div>
+<hr>
+
+
