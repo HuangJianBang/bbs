@@ -11,16 +11,27 @@ public class User {
     private Long id;
 
     @NotEmpty(message = "名字不能为空")
-    @Size(min=2, max = 10)
+   @Size(min=2, max = 10)
     @Column(nullable = false, length = 10, unique = true)
     private String username;
 
-    @NotEmpty(message = "电话不能为空")
-    @Size(min=11, max = 20)
-    @Column(nullable = false, unique = true)
+   @NotEmpty(message = "电话不能为空")
+   @Size(min=11, max = 20)
+   @Column(nullable = false, unique = true)
     private String phone;
 
     private String password;
+
+
+
+    protected User() {
+    }
+
+    public User(String username, String password, String phone) {
+        this.username = username;
+        this.password = password;
+        this.phone = phone;
+    }
 
     public Long getId() {
         return id;
@@ -38,24 +49,25 @@ public class User {
         this.username = username;
     }
 
-    public String getPhone() {
-        return phone;
-    }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
 
-    protected User() {
+
+
+    public String getPhone() {
+        return phone;
     }
 
 }

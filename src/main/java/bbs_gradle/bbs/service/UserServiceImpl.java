@@ -1,4 +1,4 @@
-package bbs_gradle.bbs.service;
+package bbs_gradle.bbs.Service;
 
 import bbs_gradle.bbs.dao.UserRepository;
 import bbs_gradle.bbs.model.User;
