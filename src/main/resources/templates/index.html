@@ -40,11 +40,13 @@
         <p th:text="${card.userId}">userId:</p>
         <span th:text="${card.level}">level:</span>
         <span th:text="${card.mark}">是否精品文件:</span>
+        <br>
+        <a th:href="@{/card/comment(userid=${card.userId}, cardid=${card.id})}">详情</a>
     </section>
 </main>
 <hr>
 <div>
-    <form action="" th:action="@{/addcard}" method="POST">
+    <form action="" th:action="@{/}" method="POST">
         <textarea name="content" id="content" cols="30" rows="10"></textarea>
         <input type="submit" th:value="提交">
     </form>

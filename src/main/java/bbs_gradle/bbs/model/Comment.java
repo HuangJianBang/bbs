@@ -11,22 +11,22 @@ public class Comment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-    private int userId;
-    private int cardId;
+    private Long id;
+    private Long userId;
+    private Long cardId;
     private String content;
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setCardId(int cardId) {
+    public void setCardId(Long cardId) {
         this.cardId = cardId;
     }
-    public int getCardId() {
+    public Long  getCardId() {
         return cardId;
     }
 
@@ -37,10 +37,10 @@ public class Comment {
         return content;
     }
 
-    public void setUser_id(int userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
-    public int getUserId() {
+    public Long getUserId() {
         return userId;
     }
 }

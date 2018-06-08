@@ -1,6 +1,6 @@
 package bbs_gradle.bbs.config;
 
-import bbs_gradle.bbs.service.UserServiceImpl;
+import bbs_gradle.bbs.Service.UserServiceImpl;
 import bbs_gradle.bbs.util.MD5Util;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;

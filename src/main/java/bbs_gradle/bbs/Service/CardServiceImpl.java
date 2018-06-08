@@ -35,8 +35,8 @@ public class CardServiceImpl implements CardService{
     @Override
     public void addCard(Card card) {
         jdbcTemplate.update(
-                "insert into card " + "(id,user_id,level,content,mark)" + "values(?,?,?,?,?)",
-                card.getId(),card.getUserId(),card.getLevel(),card.getContent(),card.getMark()
+                "insert into card " + "(user_id,level,content,mark)" + "values(?,?,?,?)",
+                card.getUserId(),card.getLevel(),card.getContent(),card.getMark()
         );
     }
     @Override
@@ -50,7 +50,7 @@ public class CardServiceImpl implements CardService{
                        card.setId(rs.getLong(1));
                        card.setContent(rs.getString(2));
                        card.setLevel(rs.getInt(3));
-                       card.setUserId(rs.getByte(4));
+                       card.setUserId(rs.getLong(4));
                        card.setMark(rs.getBoolean(5));
                        return card;
                    }

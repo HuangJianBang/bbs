@@ -8,10 +8,10 @@ import javax.persistence.Id;
 @Entity
 public class Card {
 
-    @Id
+    @Id                                                     // 主键
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int userId = 22;
+    private Long userId;
     private int level = 1;
     private String content;
     private boolean mark = false;
@@ -29,10 +29,10 @@ public class Card {
         return id;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
-    public int getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
