@@ -7,6 +7,6 @@ import java.util.List;
 public interface CardService {
     void markLevel();
     void moveTop();
-    void addCard(Card card);
+    void addCard(Card card, Long userid);
     List<Card> listCards();
 }

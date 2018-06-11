@@ -9,8 +9,8 @@ import javax.persistence.Id;
 @Entity
 public class Comment {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id                                                     // 主键
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Long userId;
     private Long cardId;

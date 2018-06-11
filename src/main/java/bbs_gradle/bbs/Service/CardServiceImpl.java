@@ -33,10 +33,10 @@ public class CardServiceImpl implements CardService{
 
     }
     @Override
-    public void addCard(Card card) {
+    public void addCard(Card card, Long userid) {
         jdbcTemplate.update(
                 "insert into card " + "(user_id,level,content,mark)" + "values(?,?,?,?)",
-                card.getUserId(),card.getLevel(),card.getContent(),card.getMark()
+                userid,card.getLevel(),card.getContent(),card.getMark()
         );
     }
     @Override

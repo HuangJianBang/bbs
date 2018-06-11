@@ -13,12 +13,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import bbs_gradle.bbs.Service.CardService;
 import bbs_gradle.bbs.dao.CardRepository;
 import bbs_gradle.bbs.model.Card;
-import bbs_gradle.bbs.model.User;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import bbs_gradle.bbs.dao.UserRepository;
+
 
 import java.util.List;
 import java.util.Map;
@@ -38,9 +36,11 @@ public class MainController {
     private List<Card> cardModelList;
 
     @PostMapping("/")
-    public String submit(Card card, Map<String, Object> model) {
-        //现在页面将数据库中的帖子展示出来
-        cardService.addCard(card);
+    public String submit(Card card, Map<String, Object> model, Long userid) {
+
+        userid = getCurrentUserId();
+        cardService.addCard(card, userid);
+
         List<Card> cards = cardService.listCards();
         model.put("cards", cards);
 

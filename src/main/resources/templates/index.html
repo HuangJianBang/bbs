@@ -34,17 +34,21 @@
 <body>
 <div th:replace="fragments/header :: header"></div>
 <div th:replace="fragments/footer :: footer"></div>
-<main th:each="card : ${cards}">
-    <section>
+
+    <section th:each="card : ${cards}">
         <div th:text="${card.content}"></div>
-        <p th:text="${card.userId}">userId:</p>
-        <span th:text="${card.level}">level:</span>
-        <span th:text="${card.mark}">是否精品文件:</span>
+        userId: <span th:text="${card.userId}"></span>
+        <br>
+        level: <span th:text="${card.level}"></span>
+        <br>
+        是否精品文件:<span th:text="${card.mark}"></span>
         <br>
         <a th:href="@{/card/comment(userid=${card.userId}, cardid=${card.id})}">详情</a>
+        <hr>
     </section>
-</main>
+
 <hr>
+
 <div>
     <form action="" th:action="@{/}" method="POST">
         <textarea name="content" id="content" cols="30" rows="10"></textarea>
