@@ -64,6 +64,18 @@ public class MainController {
         return "index";
     }
 
+    @GetMapping("goto")
+    public String whereTo() {
+        boolean isAdmin = userRepository.getOne(getCurrentUserId()).isAdmin();
+        if (isAdmin) {
+            return "/admin/index";
+        } else {
+            return "/index";
+        }
+    }
+
+
+
 
     /**
      * @return 当前登陆用户的Id

@@ -1,10 +1,16 @@
 package bbs_gradle.bbs.model;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 @Entity
 public class User {
@@ -23,19 +29,28 @@ public class User {
 
     private String phone;
 
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
+    }
+
     @Column(nullable = false)
     private String password;
 
     @Column(nullable = true)
     private String avaterUrl = "http://sshpark.oss-cn-shenzhen.aliyuncs.com/12326324,2560,1600.jpg";
 
-    public User(String username, String password, String phone) {
-        this.phone = phone;
-        this.password = password;
-        this.username = username;
-    }
+    @Column(nullable = true)
+    private boolean isAdmin = false;
 
-    protected User() {
+
+    public User(String username, String password, String phone) {
+        this.username = username;
+        this.password = password;
+        this.phone = phone;
     }
 
     public Long getId() {
@@ -70,6 +85,8 @@ public class User {
         this.password = password;
     }
 
+    protected User() {
+    }
 
     public String getAvaterUrl() {
         return avaterUrl;
@@ -78,5 +95,6 @@ public class User {
     public void setAvaterUrl(String avaterUrl) {
         this.avaterUrl = avaterUrl;
     }
+
 
 }
