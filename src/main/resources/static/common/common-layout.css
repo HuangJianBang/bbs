@@ -1,0 +1,6 @@
+div.common {
+    max-width: 1080px;
+    min-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}

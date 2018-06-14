@@ -32,4 +32,9 @@ public class AdministratorServiceImpl implements AdministratorService {
     public void deleteCard(Long cardid) {
         myCardServiceImpl.deleteMycard(cardid);
     }
+
+    @Override
+    public void mark(Long cardid) {
+        cardServiceImpl.mark(cardid);
+    }
 }

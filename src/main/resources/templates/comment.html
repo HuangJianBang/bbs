@@ -3,19 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>comment</title>
+    <!--<link rel="stylesheet" href="common/common-layout.css">-->
+    <style>
+        div.common {
+            max-width: 1080px;
+            min-width: 960px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
 </head>
 <body>
-<a th:href="@{/}">返回首页</a>
-<section>
 
+<div class="common">
+    <div><a th:href="@{/}">返回首页</a></div>
     <section th:each="card : ${cards}">
-        <p th:text="${card.content}"></p>
+        <section>
+            <p th:text="${card.content}"></p>
+        </section>
         <hr>
         <section th:each="comment : ${comments}">
-            <hr>
-            <p th:text="${comment.content}"></p>
-            评论人: <span th:text="${comment.userName}"></span>
-            <hr>
+            <div>
+                <div th:text="${comment.content}"></div>
+                <br>
+                评论人: <span th:text="${comment.userName}"></span>
+            </div>
+            <br>
+            <br>
         </section>
         <hr>
         <form th:action="@{/card/comment(cardid=${card.id})}" method="post" th:object="${Comment}">
@@ -24,10 +38,7 @@
                 <input type="submit" th:value="提交评论">
             </form>
     </section>
-</section>
-
-
-
+</div>
 
 </body>
 </html>

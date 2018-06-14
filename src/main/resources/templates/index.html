@@ -29,11 +29,12 @@
 
     <!-- Amaze UI CSS -->
     <link rel="stylesheet" href="//cdn.amazeui.org/amazeui/2.1.0/css/amazeui.min.css">
-
+    <link rel="stylesheet" href="common/common-layout.css">
 </head>
 <body>
+<div></div>
 <div th:replace="fragments/header :: header"></div>
-
+<div class="common">
     <section th:each="card : ${cards}">
         <div th:text="${card.content}"></div>
         用户名 : <span th:text="${card.userName}"></span>
@@ -46,15 +47,13 @@
         <hr>
     </section>
 
-<hr>
-
 <div>
     <form action="" th:action="@{/}" method="POST" th:object="${Card}">
         <textarea name="content" id="content" cols="30" rows="10"></textarea>
         <input type="submit" th:value="提交">
     </form>
 </div>
-<hr>
+</div>
 
 
 <div th:replace="fragments/footer :: footer"></div>

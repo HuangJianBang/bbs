@@ -7,4 +7,5 @@ import java.util.List;
 public interface AdministratorService {
     List<Card> listCards();
     void deleteCard(Long cardid);
+    void mark(Long cardid);
 }

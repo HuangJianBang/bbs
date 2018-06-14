@@ -23,9 +23,11 @@ public class CardServiceImpl implements CardService{
     public CardServiceImpl(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
-    @Override
-    public void markLevel() {
 
+    @Override
+    public void mark(Long carid) {
+        jdbcTemplate.update("update card set mark = ? where id = ?",
+                true, carid);
     }
 
     @Override

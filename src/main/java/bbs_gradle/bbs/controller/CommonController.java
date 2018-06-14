@@ -36,7 +36,7 @@ public class CommonController {
     @GetMapping("/administrator")
     public String checkCurrentUserIdentity() {
         String currentUserName = getCurrentUserName();
-        if (currentUserName.equals("admin") || currentUserName.equals("Admin")) {
+        if (currentUserName.equals("admin")) {
             return "redirect:/admin";
         } else {
             return "redirect:/mycard";
