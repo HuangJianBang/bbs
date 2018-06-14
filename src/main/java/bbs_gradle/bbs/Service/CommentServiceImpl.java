@@ -15,9 +15,6 @@ import java.util.List;
 @Service
 public class CommentServiceImpl implements CommentService {
 
-    @Autowired
-    private DataSource dataSource;
-
     private JdbcTemplate jdbcTemplate;
 
     @Autowired
@@ -26,21 +23,21 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public void addComment(Comment comment, Long userid, Long cardid) {
-        jdbcTemplate.update("insert into comment" + "(user_id, card_id, content)" + "values (?,?,?)",
-                        userid, cardid, comment.getContent());
+    public void addComment(Comment comment, String userName, Long cardid) {
+        jdbcTemplate.update("insert into comment" + "(user_name, card_id, content)" + "values (?,?,?)",
+                        userName, cardid, comment.getContent());
     }
 
     @Override
     public List<Comment> showComment(Long cardid) {
-        return jdbcTemplate.query("select content,user_id from comment " +
+        return jdbcTemplate.query("select content,user_name from comment " +
                         "where card_id = ?", new Object[]{cardid},
                 new RowMapper<Comment>() {
                     @Override
                     public Comment mapRow(ResultSet rs, int rowNum) throws SQLException {
                         Comment comment = new Comment();
                         comment.setContent(rs.getString(1));
-                        comment.setUserId(rs.getLong(2));
+                        comment.setUserName(rs.getString(2));
                         return comment;
                     }
                 });
@@ -52,13 +49,13 @@ public class CommentServiceImpl implements CommentService {
     }
 
     public List<Card> displayCard(Long carid) {
-        return jdbcTemplate.query("select user_id, content, id " +
+        return jdbcTemplate.query("select user_name, content, id " +
                         "from card where id= ?",  new Object[]{carid},
                 new RowMapper<Card>() {
                     @Override
                     public Card mapRow(ResultSet rs, int rowNum) throws SQLException {
                         Card card = new Card();
-                        card.setUserId(rs.getLong(1));
+                        card.setUserName(rs.getString(1));
                         card.setContent(rs.getString(2));
                         card.setId(rs.getLong(3));
                         return card;

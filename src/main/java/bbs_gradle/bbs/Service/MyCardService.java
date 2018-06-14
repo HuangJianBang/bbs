@@ -5,6 +5,6 @@ import bbs_gradle.bbs.model.Card;
 import java.util.List;
 
 public interface MyCardService {
-    List<Card> listMycard(Long userid);
+    List<Card> listMycard(String userName);
     void deleteMycard(Long cardid);
 }

@@ -12,7 +12,7 @@ public class Comment {
     @Id                                                     // 主键
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long userId;
+    private String userName;
     private Long cardId;
     private String content;
 
@@ -37,10 +37,10 @@ public class Comment {
         return content;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
-    public Long getUserId() {
-        return userId;
+    public String getUserName() {
+        return userName;
     }
 }

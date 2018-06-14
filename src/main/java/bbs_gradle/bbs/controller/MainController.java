@@ -35,10 +35,10 @@ public class MainController {
 
 
     @PostMapping("/")
-    public String submit(Card card, Map<String, Object> model, Long userid) {
+    public String submit(Card card, Map<String, Object> model, String userName) {
 
-        userid = getCurrentUserId();
-        cardService.addCard(card, userid);
+        userName = getCurrentUserName();
+        cardService.addCard(card, userName);
 
         List<Card> cards = cardService.listCards();
         model.put("cards", cards);
@@ -74,6 +74,13 @@ public class MainController {
         String username = userDetails.getUsername();
         return userRepository.findByUsername(username).getId();
     }
-    
+
+    //返回当前登陆用户的名字
+    private String getCurrentUserName() {
+        UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext()
+                .getAuthentication().getPrincipal();
+        return userDetails.getUsername();
+
+    }
 
 }

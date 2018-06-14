@@ -14,7 +14,7 @@
         <section th:each="comment : ${comments}">
             <hr>
             <p th:text="${comment.content}"></p>
-            评论人: <span th:text="${comment.userId}"></span>
+            评论人: <span th:text="${comment.userName}"></span>
             <hr>
         </section>
         <hr>

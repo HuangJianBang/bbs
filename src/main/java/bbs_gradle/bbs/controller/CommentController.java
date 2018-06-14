@@ -46,11 +46,11 @@ public class CommentController {
     }
 
     @PostMapping("/card/comment")
-    private String addComment(Comment comment, Long userid, Map<String, Object> model,
+    private String addComment(Comment comment, String userName, Map<String, Object> model,
                               @RequestParam("cardid") Long cardid) {
 
-        userid = getCurrentUserId();
-        commentServiceImpl.addComment(comment, userid, cardid);
+        userName = getCurrentUserName();
+        commentServiceImpl.addComment(comment, userName, cardid);
         List<Comment> comments = commentServiceImpl.showComment(cardid);
 
         List<Card> cards = commentServiceImpl.displayCard(cardid);
@@ -71,6 +71,14 @@ public class CommentController {
                 .getAuthentication().getPrincipal();
         String username = userDetails.getUsername();
         return userRepository.findByUsername(username).getId();
+    }
+
+    //返回当前登陆用户的名字
+    private String getCurrentUserName() {
+        UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext()
+                .getAuthentication().getPrincipal();
+        return userDetails.getUsername();
+
     }
 
 }

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>管理论坛</title>
+</head>
+<body>
+    <div>
+        <section th:each="card : ${cards}">
+            <div th:text="${card.content}"></div>
+            userId: <span th:text="${card.userName}"></span> |
+            level: <span th:text="${card.level}"></span> |
+            是否精品文件:<span th:text="${card.mark}"></span> |
+            <a th:href="@{/card/comment(userid=${card.userName}, cardid=${card.id})}">详情</a> |
+            <a th:href="@{/admin/delete}">删除</a>
+            <hr>
+        </section>
+    </div>
+</body>
+</html>

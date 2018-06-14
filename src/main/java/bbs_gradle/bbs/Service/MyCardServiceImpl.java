@@ -22,9 +22,9 @@ public class MyCardServiceImpl implements MyCardService {
 
     //将登录用户所写过的帖子列出来
     @Override
-    public List<Card> listMycard(Long userid) {
-        return jdbcTemplate.query("select id, content, level, mark, user_id" +
-                        " from card where user_id = ?", new Object[]{userid},
+    public List<Card> listMycard(String userName) {
+        return jdbcTemplate.query("select id, content, level, mark, user_name" +
+                        " from card where user_name = ?", new Object[]{userName},
                 new RowMapper<Card>() {
                     @Override
                     public Card mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -33,7 +33,7 @@ public class MyCardServiceImpl implements MyCardService {
                         card.setContent(rs.getString(2));
                         card.setLevel(rs.getInt(3));
                         card.setMark(rs.getBoolean(4));
-                        card.setUserId(rs.getLong(5));
+                        card.setUserName(rs.getString(5));
                         return card;
                     }
                 });

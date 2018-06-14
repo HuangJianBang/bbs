@@ -24,8 +24,8 @@ public class MyCardController {
 
     @RequestMapping("/mycard")
     public String listMycard(Map<String, Object> model) {
-        Long userid = getCurrentUserId();
-        List<Card> mycards = myCardServiceImpl.listMycard(userid);
+        String userName = getCurrentUserName();
+        List<Card> mycards = myCardServiceImpl.listMycard(userName);
 
         model.put("mycards", mycards);
 
@@ -46,5 +46,13 @@ public class MyCardController {
                 .getAuthentication().getPrincipal();
         String username = userDetails.getUsername();
         return userRepository.findByUsername(username).getId();
+    }
+
+    //返回当前登陆用户的名字
+    private String getCurrentUserName() {
+        UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext()
+                .getAuthentication().getPrincipal();
+        return userDetails.getUsername();
+
     }
 }

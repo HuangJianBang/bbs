@@ -11,10 +11,10 @@ public class Card {
     @Id                                                     // 主键
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long userId;
     private int level = 1;
     private String content;
     private boolean mark = false;
+    private String userName;
 
     public void setMark(boolean mark) {
         this.mark = mark;
@@ -29,12 +29,6 @@ public class Card {
         return id;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-    public Long getUserId() {
-        return userId;
-    }
 
     public void setContent(String content) {
         this.content = content;
@@ -48,5 +42,13 @@ public class Card {
     }
     public int getLevel() {
         return level;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getUserName() {
+        return userName;
     }
 }

@@ -33,6 +33,16 @@ public class CommonController {
         return "/secret";
     }
 
+    @GetMapping("/administrator")
+    public String checkCurrentUserIdentity() {
+        String currentUserName = getCurrentUserName();
+        if (currentUserName.equals("admin") || currentUserName.equals("Admin")) {
+            return "redirect:/admin";
+        } else {
+            return "redirect:/mycard";
+        }
+    }
+
     /**
      * @return 当前登陆用户的Id
      */
@@ -41,5 +51,12 @@ public class CommonController {
                 .getAuthentication().getPrincipal();
         String username = userDetails.getUsername();
         return userRepository.findByUsername(username).getId();
+    }
+
+    //获取用户名字
+    private String getCurrentUserName() {
+        UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext()
+                .getAuthentication().getPrincipal();
+        return userDetails.getUsername();
     }
 }

@@ -37,13 +37,13 @@
 
     <section th:each="card : ${cards}">
         <div th:text="${card.content}"></div>
-        userId: <span th:text="${card.userId}"></span>
+        用户名 : <span th:text="${card.userName}"></span>
         <br>
-        level: <span th:text="${card.level}"></span>
+        帖子等级 : <span th:text="${card.level}"></span>
         <br>
         是否精品文件:<span th:text="${card.mark}"></span>
         <br>
-        <a th:href="@{/card/comment(userid=${card.userId}, cardid=${card.id})}">详情</a>
+        <a th:href="@{/card/comment(userid=${card.userName}, cardid=${card.id})}">详情</a>
         <hr>
     </section>
 
