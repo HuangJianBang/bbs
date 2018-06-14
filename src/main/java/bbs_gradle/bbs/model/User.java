@@ -1,5 +1,7 @@
 package bbs_gradle.bbs.model;
 
+import org.springframework.beans.factory.annotation.Value;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
@@ -15,23 +17,19 @@ public class User {
     @Column(nullable = false, length = 10, unique = true)
     private String username;
 
-   @NotEmpty(message = "电话不能为空")
-   @Size(min=11, max = 20)
-   @Column(nullable = false, unique = true)
+    @NotEmpty(message = "电话不能为空")
+    @Size(min=11, max = 20)
+    @Column(nullable = false, unique = true)
+
     private String phone;
 
+    @Column(nullable = false)
     private String password;
 
+    @Column(nullable = true)
+    private String avaterUrl = "http://sshpark.oss-cn-shenzhen.aliyuncs.com/12326324,2560,1600.jpg";
 
 
-    protected User() {
-    }
-
-    public User(String username, String password, String phone) {
-        this.username = username;
-        this.password = password;
-        this.phone = phone;
-    }
 
     public Long getId() {
         return id;
@@ -49,23 +47,31 @@ public class User {
         this.username = username;
     }
 
+    public String getPhone() {
+        return phone;
+    }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getPassword() {
         return password;
     }
 
-
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
+    protected User() {
+    }
 
-    public String getPhone() {
-        return phone;
+    public String getAvaterUrl() {
+        return avaterUrl;
+    }
+
+    public void setAvaterUrl(String avaterUrl) {
+        this.avaterUrl = avaterUrl;
     }
 
 }
