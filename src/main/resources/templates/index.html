@@ -33,7 +33,6 @@
 </head>
 <body>
 <div th:replace="fragments/header :: header"></div>
-<div th:replace="fragments/footer :: footer"></div>
 
     <section th:each="card : ${cards}">
         <div th:text="${card.content}"></div>
@@ -58,3 +57,4 @@
 <hr>
 
 
+<div th:replace="fragments/footer :: footer"></div>

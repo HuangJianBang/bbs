@@ -3,6 +3,7 @@ package bbs_gradle.bbs.Service;
 import bbs_gradle.bbs.dao.UserRepository;
 import bbs_gradle.bbs.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -24,16 +25,11 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return userRepository.save(user);
     }
 
-
-    @Override
-    public Optional<User> getUserById(Long id) {
-        return userRepository.findById(id) ;
-    }
-
     @Override
     public User registerUser(User user) {
         return userRepository.save(user);
     }
+
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
