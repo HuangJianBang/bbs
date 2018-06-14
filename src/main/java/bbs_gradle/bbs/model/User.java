@@ -29,7 +29,14 @@ public class User {
     @Column(nullable = true)
     private String avaterUrl = "http://sshpark.oss-cn-shenzhen.aliyuncs.com/12326324,2560,1600.jpg";
 
+    public User(String username, String password, String phone) {
+        this.phone = phone;
+        this.password = password;
+        this.username = username;
+    }
 
+    protected User() {
+    }
 
     public Long getId() {
         return id;
@@ -63,8 +70,6 @@ public class User {
         this.password = password;
     }
 
-    protected User() {
-    }
 
     public String getAvaterUrl() {
         return avaterUrl;
