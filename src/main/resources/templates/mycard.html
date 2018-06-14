@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>my cards</title>
+</head>
+<body>
+    <div>
+        <section th:each="mycard : ${mycards}">
+            <p th:text="${mycard.content}"></p>
+            <br>
+            <span th:text="${mycard.id}"></span> |
+            <span th:text="${mycard.level}"></span> |
+            <span th:text="${mycard.mark}"></span> |
+            <span th:text="${mycard.userId}"></span> |
+            <span><a th:href="@{/card/comment(userid=${mycard.userId}, cardid=${mycard.id})}">详情</a></span> |
+            <span><a th:href="@{/mycard/delete(cardid=${mycard.id})}">删除</a></span>
+            <hr>
+        </section>
+    </div>
+</body>
+</html>

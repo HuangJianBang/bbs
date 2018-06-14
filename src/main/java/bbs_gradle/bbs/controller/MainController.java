@@ -33,7 +33,6 @@ public class MainController {
     @Autowired
     private CardService cardService;
 
-    private List<Card> cardModelList;
 
     @PostMapping("/")
     public String submit(Card card, Map<String, Object> model, Long userid) {

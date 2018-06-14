@@ -42,7 +42,7 @@ public class CardServiceImpl implements CardService{
     @Override
     public List<Card> listCards() {
        return jdbcTemplate.query("select id, content,level,user_id,mark"
-                       + " from card order by id",
+                       + " from card order by id desc",
                new RowMapper<Card>() {
                    @Override
                    public Card mapRow(ResultSet rs, int rowNum) throws SQLException {

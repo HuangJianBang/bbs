@@ -12,6 +12,7 @@
             <ul class="am-nav am-nav-pills am-topbar-nav">
                 <li><a href="#">首页</a></li>
                 <li><a href="#">项目</a></li>
+                <li><a th:href="@{/mycard}">我的帖子</a></li>
             </ul>
             <div sec:authorize="isAuthenticated()">
                 <div class="am-topbar-right">
@@ -20,6 +21,12 @@
                 <div class="am-topbar-right">
                     <button class="am-btn am-btn-secondary am-topbar-btn am-btn-sm"><span sec:authentication="name"></span></button>
                 </div>
+
+                <div class="am-topbar-right">
+                    <button class="am-btn am-btn-primary am-topbar-btn am-btn-sm" onclick="location.href='/change/secret'">修改密码</button>
+                </div>
+
+
             </div>
             <div sec:authorize="isAnonymous()">
                 <div class="am-topbar-right">
@@ -29,6 +36,8 @@
                 <div class="am-topbar-right">
                     <button class="am-btn am-btn-primary am-topbar-btn am-btn-sm" onclick="location.href='/login'"><span class="am-icon-user"></span> 登录</button>
                 </div>
+
+
             </div>
         </div>
     </div>

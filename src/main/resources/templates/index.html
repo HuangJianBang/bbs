@@ -50,7 +50,7 @@
 <hr>
 
 <div>
-    <form action="" th:action="@{/}" method="POST">
+    <form action="" th:action="@{/}" method="POST" th:object="${Card}">
         <textarea name="content" id="content" cols="30" rows="10"></textarea>
         <input type="submit" th:value="提交">
     </form>

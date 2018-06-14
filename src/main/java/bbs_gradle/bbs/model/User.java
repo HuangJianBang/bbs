@@ -11,7 +11,7 @@ public class User {
     private Long id;
 
     @NotEmpty(message = "名字不能为空")
-   @Size(min=2, max = 10)
+    @Size(min=2, max = 10)
     @Column(nullable = false, length = 10, unique = true)
     private String username;
 
@@ -62,8 +62,6 @@ public class User {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-
-
 
 
     public String getPhone() {
