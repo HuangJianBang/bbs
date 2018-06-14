@@ -36,6 +36,9 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-config')
     compile('org.thymeleaf.extras:thymeleaf-extras-springsecurity4')
 
+    // 热部署
+    compile('org.springframework.boot:spring-boot-devtools')
+
     compile('org.apache.commons:commons-lang3:3.5')
 //    runtime('com.h2database:h2')
     runtime('mysql:mysql-connector-java')

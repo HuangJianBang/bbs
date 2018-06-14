@@ -48,7 +48,7 @@
                     <div class="am-panel-bd">
                         <div class="am-g">
                             <div class="am-u-md-4">
-                                <img class="am-img-circle am-img-thumbnail" src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/200/h/200/q/80" alt=""/>
+                                <img class="am-img-circle am-img-thumbnail" th:src="${user.avaterUrl}" alt=""/>
                             </div>
                             <div class="am-u-md-8">
                                 <p>使用本地上传头像。 </p>
@@ -68,7 +68,7 @@
                     <div class="am-panel-bd">
                         <div class="user-info">
                             <p>等级信息</p>
-                            <div class="am-progress am-progress-sm">
+                            <div class="am-progress am-progress-sm"><!---->
                                 <div class="am-progress-bar" style="width: 60%"></div>
                             </div>
                             <p class="user-info-order">当前等级：<strong>LV8</strong> 活跃天数：<strong>587</strong> 距离下一级别：<strong>160</strong></p>
@@ -86,19 +86,19 @@
             </div>
 
             <div class="am-u-sm-12 am-u-md-8 am-u-md-pull-4">
-                <form class="am-form am-form-horizontal" data-am-validator>
+                <form class="am-form am-form-horizontal" data-am-validator method="post" action="/users/update">
                     <div class="am-form-group">
-                        <label for="user-name" class="am-u-sm-3 am-form-label">姓名</label>
+                        <label for="username" class="am-u-sm-3 am-form-label">姓名</label>
                         <div class="am-u-sm-9">
-                            <input type="text" id="user-name" placeholder="姓名 / Name（至少 3 个字符）" minlength="3"
+                            <input type="text" id="username" name="username" placeholder="姓名 / Name（至少 3 个字符）" minlength="3"
                             th:value="${user.username}" required>
                         </div>
                     </div>
 
                     <div class="am-form-group">
-                        <label for="user-phone" class="am-u-sm-3 am-form-label">电话</label>
+                        <label for="phone" class="am-u-sm-3 am-form-label">电话</label>
                         <div class="am-u-sm-9">
-                            <input type="tel" id="user-phone" placeholder="输入你的电话号码 / Telephone"
+                            <input type="tel" id="phone" name="phone" placeholder="输入你的电话号码 / Telephone"
                                    th:value="${user.phone}" required>
                         </div>
                     </div>
@@ -106,20 +106,21 @@
                     <div class="am-form-group">
                         <label for="doc-vld-pwd-1" class="am-u-sm-3 am-form-label">密码</label>
                         <div class="am-u-sm-9">
-                            <input type="password" id="doc-vld-pwd-1" placeholder="输入密码"  required/>
+                            <input type="password" id="doc-vld-pwd-1" placeholder="输入密码" />
                         </div>
                     </div>
 
                     <div class="am-form-group">
                         <label for="doc-vld-pwd-2" class="am-u-sm-3 am-form-label">确认密码</label>
                         <div class="am-u-sm-9">
-                            <input type="password" id="doc-vld-pwd-2" placeholder="请与上面输入的值一致" data-equal-to="#doc-vld-pwd-1" required/>
+                            <input type="password" name="password" id="doc-vld-pwd-2" placeholder="请与上面输入的值一致"
+                                   data-equal-to="#doc-vld-pwd-1" />
                         </div>
                     </div>
 
                     <div class="am-form-group">
                         <div class="am-u-sm-9 am-u-sm-push-3">
-                            <button type="button" class="am-btn am-btn-primary">保存修改</button>
+                            <button type="submit" class="am-btn am-btn-primary">保存修改</button>
                         </div>
                     </div>
                 </form>

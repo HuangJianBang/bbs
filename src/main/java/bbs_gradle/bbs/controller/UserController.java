@@ -11,14 +11,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import sun.security.provider.MD5;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
 import java.util.Optional;
 
 @Controller
@@ -62,7 +61,21 @@ public class UserController {
         } catch (Exception e) {
             // TODO: handle exception
         }
+        return "redirect:/users/profile";
+    }
 
+    @PostMapping("/update")
+    public String update(User user) {
+        Long id = getCurrentUserId();
+
+        if (user.getPassword().equals("")) {
+            user.setPassword(userRepository.getOne(id).getPassword());
+        } else {
+            user.setPassword(MD5Util.encode(user.getPassword()));
+        }
+
+        user.setId(id);
+        userRepository.save(user);
         return "redirect:/users/profile";
     }
 
@@ -75,6 +88,4 @@ public class UserController {
         String username = userDetails.getUsername();
         return userRepository.findByUsername(username).getId();
     }
-
-
 }
