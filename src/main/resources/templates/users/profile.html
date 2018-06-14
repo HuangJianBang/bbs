@@ -1,0 +1,139 @@
+<!doctype html>
+<html class="no-js"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title sec:authentication="name"></title>
+
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+
+    <!-- Amaze UI CSS -->
+    <link rel="stylesheet" href="//cdn.amazeui.org/amazeui/2.1.0/css/amazeui.min.css">
+
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+<div class="am-g am-g-fixed am-margin-top">
+
+<!-- content start -->
+<div class="admin-content">
+    <div class="admin-content-body">
+        <div class="am-cf am-padding am-padding-bottom-0">
+            <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">个人资料</strong> / <small>Personal information</small></div>
+        </div>
+
+        <hr/>
+
+        <div class="am-g">
+            <div class="am-u-sm-12 am-u-md-4 am-u-md-push-8">
+                <div class="am-panel am-panel-default">
+                    <div class="am-panel-bd">
+                        <div class="am-g">
+                            <div class="am-u-md-4">
+                                <img class="am-img-circle am-img-thumbnail" src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/200/h/200/q/80" alt=""/>
+                            </div>
+                            <div class="am-u-md-8">
+                                <p>使用本地上传头像。 </p>
+                                <form class="am-form" action="/users/updateAvater" enctype="multipart/form-data" method="post">
+                                    <div class="am-form-group">
+                                        <input type="file" id="user-pic" name="user_pic">
+                                        <p class="am-form-help">请选择要上传的文件...</p>
+                                        <button type="submit" class="am-btn am-btn-primary am-btn-xs">保存</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="am-panel am-panel-default">
+                    <div class="am-panel-bd">
+                        <div class="user-info">
+                            <p>等级信息</p>
+                            <div class="am-progress am-progress-sm">
+                                <div class="am-progress-bar" style="width: 60%"></div>
+                            </div>
+                            <p class="user-info-order">当前等级：<strong>LV8</strong> 活跃天数：<strong>587</strong> 距离下一级别：<strong>160</strong></p>
+                        </div>
+                        <div class="user-info">
+                            <p>信用信息</p>
+                            <div class="am-progress am-progress-sm">
+                                <div class="am-progress-bar am-progress-bar-success" style="width: 80%"></div>
+                            </div>
+                            <p class="user-info-order">信用等级：正常当前 信用积分：<strong>80</strong></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="am-u-sm-12 am-u-md-8 am-u-md-pull-4">
+                <form class="am-form am-form-horizontal" data-am-validator>
+                    <div class="am-form-group">
+                        <label for="user-name" class="am-u-sm-3 am-form-label">姓名</label>
+                        <div class="am-u-sm-9">
+                            <input type="text" id="user-name" placeholder="姓名 / Name（至少 3 个字符）" minlength="3"
+                            th:value="${user.username}" required>
+                        </div>
+                    </div>
+
+                    <div class="am-form-group">
+                        <label for="user-phone" class="am-u-sm-3 am-form-label">电话</label>
+                        <div class="am-u-sm-9">
+                            <input type="tel" id="user-phone" placeholder="输入你的电话号码 / Telephone"
+                                   th:value="${user.phone}" required>
+                        </div>
+                    </div>
+
+                    <div class="am-form-group">
+                        <label for="doc-vld-pwd-1" class="am-u-sm-3 am-form-label">密码</label>
+                        <div class="am-u-sm-9">
+                            <input type="password" id="doc-vld-pwd-1" placeholder="输入密码"  required/>
+                        </div>
+                    </div>
+
+                    <div class="am-form-group">
+                        <label for="doc-vld-pwd-2" class="am-u-sm-3 am-form-label">确认密码</label>
+                        <div class="am-u-sm-9">
+                            <input type="password" id="doc-vld-pwd-2" placeholder="请与上面输入的值一致" data-equal-to="#doc-vld-pwd-1" required/>
+                        </div>
+                    </div>
+
+                    <div class="am-form-group">
+                        <div class="am-u-sm-9 am-u-sm-push-3">
+                            <button type="button" class="am-btn am-btn-primary">保存修改</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="admin-content-footer">
+        <hr>
+        <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
+    </footer>
+
+</div>
+<!-- content end -->
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
