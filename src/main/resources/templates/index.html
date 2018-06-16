@@ -29,31 +29,87 @@
 
     <!-- Amaze UI CSS -->
     <link rel="stylesheet" href="//cdn.amazeui.org/amazeui/2.1.0/css/amazeui.min.css">
-    <link rel="stylesheet" href="common/common-layout.css">
+    <link rel="stylesheet" href="/css/am-md.css">
+    <link rel="stylesheet" href="/common/common-layout.css">
 </head>
 <body>
 <div></div>
 <div th:replace="fragments/header :: header"></div>
-<div class="common">
-    <section th:each="card : ${cards}">
-        <div th:text="${card.content}"></div>
-        用户名 : <span th:text="${card.userName}"></span>
-        <br>
-        帖子等级 : <span th:text="${card.level}"></span>
-        <br>
-        是否精品文件:<span th:text="${card.mark}"></span>
-        <br>
-        <a th:href="@{/card/comment(userid=${card.userName}, cardid=${card.id})}">详情</a>
-        <hr>
-    </section>
+<!--<section th:each="card : ${cards}">-->
+<!--<div th:text="${card.content}"></div>-->
+<!--用户名 : <span th:text="${card.userName}"></span>-->
+<!--<br>-->
+<!--帖子等级 : <span th:text="${card.level}"></span>-->
+<!--<br>-->
+<!--是否精品文件:<span th:text="${card.mark}"></span>-->
+<!--<br>-->
+<!--<a th:href="@{/card/comment(userid=${card.userName}, cardid=${card.id})}">详情</a>-->
+<!--<hr>-->
+<!--</section>-->
+<div class="am-g am-g-fixed blog-g-fixed am-margin-top">
+    <div class="am-u-md-8">
+        <div data-am-widget="list_news" class="am-list-news am-list-news-default" >
+            <!--列表标题-->
+            <div class="am-list-news-hd am-cf">
+                <!--带更多链接-->
+                <a href="###" class="">
+                    <h2>帖子列表</h2>
+                    <span class="am-list-news-more am-fr">发布新帖子 &raquo;</span>
+                </a>
+            </div>
 
-<div>
-    <form action="" th:action="@{/}" method="POST" th:object="${Card}">
-        <textarea name="content" id="content" cols="30" rows="10"></textarea>
-        <input type="submit" th:value="提交">
-    </form>
+            <div class="am-list-news-bd">
+                <ul class="am-list">
+
+                    <li class="am-g am-list-item-desced">
+                        <a href="http://www.douban.com/online/11614662/" class="am-list-item-hd ">我很囧，你保重....晒晒旅行中的那些囧！</a>
+
+
+                        <div class="am-list-item-text">囧人囧事囧照，人在囧途，越囧越萌。标记《带你出发，陪我回家》http://book.douban.com/subject/25711202/为“想读”“在读”或“读过”，有机会获得此书本活动进行3个月，每月送出三本书。会有不定期bonus！</div>
+
+                    </li>
+                    <li class="am-g am-list-item-desced">
+                        <a href="http://www.douban.com/online/11624755/" class="am-list-item-hd ">我最喜欢的一张画</a>
+
+
+                        <div class="am-list-item-text">你最喜欢的艺术作品，告诉大家它们的------名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片美我最喜欢的画群296795413进群发画，少说多发图，</div>
+
+                    </li>
+                    <li class="am-g">
+                        <a href="http://www.douban.com/online/11645411/" class="am-list-item-hd ">“你的旅行，是什么颜色？” 晒照片，换北欧梦幻极光之旅！</a>
+                    </li>
+                </ul>
+                <textarea data-am-md></textarea>
+            </div>
+
+        </div>
+
+        <hr class="am-article-divider blog-hr">
+        <ul class="am-pagination blog-pagination">
+            <li class="am-pagination-prev"><a href="">&laquo; 上一页</a></li>
+            <li class="am-pagination-next"><a href="">下一页 &raquo;</a></li>
+        </ul>
+    </div>
+
+    <div class="am-u-md-4 blog-sidebar">
+        <div class="am-panel-group">
+            <section class="am-panel am-panel-default">
+                <div class="am-panel-hd">最近帖子</div>
+                <ul class="am-list blog-list">
+                    <li><a href="#">Google fonts 的字體（sans-serif 篇）</a></li>
+                    <li><a href="#">[but]服貿最前線？－再訪桃園機場</a></li>
+                    <li><a href="#">到日星鑄字行學字型</a></li>
+                    <li><a href="#">glyph font vs. 漢字（上）</a></li>
+                    <li><a href="#">浙江民間書刻體上線</a></li>
+                    <li><a href="#">[極短篇] Android v.s iOS，誰的字體好讀？</a></li>
+                </ul>
+            </section>
+
+        </div>
+    </div>
+
 </div>
-</div>
+
 
 
 <div th:replace="fragments/footer :: footer"></div>
