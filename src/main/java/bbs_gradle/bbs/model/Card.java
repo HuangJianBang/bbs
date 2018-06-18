@@ -52,4 +52,16 @@ public class Card {
     public String getUserName() {
         return userName;
     }
+
+    public boolean isMark() {
+        return mark;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 }

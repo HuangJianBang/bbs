@@ -37,13 +37,13 @@ public class CardServiceImpl implements CardService{
     @Override
     public void addCard(Card card, String userName) {
         jdbcTemplate.update(
-                "insert into card " + "(user_name,level,content,mark)" + "values(?,?,?,?)",
-                userName,card.getLevel(),card.getContent(),card.getMark()
+                "insert into card " + "(user_name,level,content,mark, title)" + "values(?,?,?,?,?)",
+                userName,card.getLevel(),card.getContent(),card.getMark(),card.getTitle()
         );
     }
     @Override
     public List<Card> listCards() {
-       return jdbcTemplate.query("select id, content,level,user_name,mark"
+       return jdbcTemplate.query("select id, content,level,user_name,mark,title"
                        + " from card order by id desc",
                new RowMapper<Card>() {
                    @Override
@@ -54,6 +54,7 @@ public class CardServiceImpl implements CardService{
                        card.setLevel(rs.getInt(3));
                        card.setUserName(rs.getString(4));
                        card.setMark(rs.getBoolean(5));
+                       card.setTitle(rs.getString(6));
                        return card;
                    }
                });
