@@ -36,8 +36,8 @@
 <div class="am-g am-g-fixed blog-g-fixed am-margin-top am-center">
     <div class="am-u-md-12">
         <form class="am-form" method="post" th:action="@{/cards/addcard}">
-
-            <textarea data-am-md  th:name="content"></textarea>
+            <input type="text" name="title" placeholder="标题"><hr>
+            <textarea data-am-md th:name="content"></textarea>
             <button th:type="submit" class="am-btn am-btn-secondary">提交</button>
         </form>
     </div>
