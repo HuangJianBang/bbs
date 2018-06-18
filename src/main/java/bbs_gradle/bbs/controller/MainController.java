@@ -52,7 +52,6 @@ public class MainController {
     }
 
 
-
     @GetMapping("/login")
     public String login(User user) {
         return "/users/login";
