@@ -49,7 +49,7 @@ public class CommentServiceImpl implements CommentService {
     }
 
     public List<Card> displayCard(Long carid) {
-        return jdbcTemplate.query("select user_name, content, id " +
+        return jdbcTemplate.query("select user_name, content, id,title " +
                         "from card where id= ?",  new Object[]{carid},
                 new RowMapper<Card>() {
                     @Override
@@ -58,6 +58,7 @@ public class CommentServiceImpl implements CommentService {
                         card.setUserName(rs.getString(1));
                         card.setContent(rs.getString(2));
                         card.setId(rs.getLong(3));
+                        card.setTitle(rs.getString(4));
                         return card;
                     }
                 }

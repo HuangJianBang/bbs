@@ -34,18 +34,37 @@
 <body>
 <div></div>
 <div th:replace="fragments/header :: header"></div>
-<div class="am-g am-g-fixed blog-g-fixed am-margin-top am-center">
+<div class="am-g am-g-fixed blog-g-fixed am-margin-top am-center" th:each="card : ${cards}">
     <div class="am-u-md-12">
         <article class="am-article">
             <div class="am-article-hd">
-                <h1 class="am-article-title">永远的蝴蝶</h1>
-                <p class="am-article-meta">陈启佑（台湾）</p>
+                <h1 class="am-article-title" th:text="${card.title}"></h1>
+                <p class="am-article-meta" th:text="${card.userName}">陈启佑（台湾）</p>
             </div>
 
             <div class="am-article-bd">
-                <p class="am-article-lead">...</p>
+                <p class="am-article-lead" th:text="${card.content}"></p>
             </div>
         </article>
+    </div>
+    <div class="am-u-md-12" >
+        <section th:each="comment : ${comments}">
+            <div>
+                <div th:text="${comment.content}"></div>
+                <br>
+                评论人: <span th:text="${comment.userName}"></span>
+            </div>
+            <br>
+            <br>
+        </section>
+    </div>
+
+    <div class="am-u-md-12">
+        <form th:action="@{/card/comment(cardid=${card.id})}" method="post" th:object="${Comment}">
+            <textarea data-am-md name="content"></textarea>
+            <br>
+            <input type="submit" th:value="提交评论">
+        </form>
     </div>
 </div>
 
