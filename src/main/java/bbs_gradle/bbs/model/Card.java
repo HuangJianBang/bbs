@@ -15,6 +15,7 @@ public class Card {
     private String content;
     private boolean mark = false;
     private String userName;
+    private String title;
 
     public void setMark(boolean mark) {
         this.mark = mark;

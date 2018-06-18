@@ -34,7 +34,7 @@ public class MainController {
     private CardService cardService;
 
 
-    @PostMapping("/")
+    @PostMapping("/cards/addcard")
     public String submit(Card card, Map<String, Object> model, String userName) {
 
         userName = getCurrentUserName();
@@ -50,6 +50,8 @@ public class MainController {
     public String addcard() {
         return "/cards/addcard";
     }
+
+
 
     @GetMapping("/login")
     public String login(User user) {
