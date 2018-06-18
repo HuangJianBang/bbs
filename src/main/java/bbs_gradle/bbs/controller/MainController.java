@@ -46,6 +46,11 @@ public class MainController {
         return "index";
     }
 
+    @GetMapping("/cards/addcard")
+    public String addcard() {
+        return "/cards/addcard";
+    }
+
     @GetMapping("/login")
     public String login(User user) {
         return "/users/login";

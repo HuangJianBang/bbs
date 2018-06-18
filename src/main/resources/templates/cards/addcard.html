@@ -1,0 +1,44 @@
+<!doctype html>
+<html class="no-js"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title sec:authentication="name"></title>
+
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+
+
+    <!-- Amaze UI CSS -->
+    <link rel="stylesheet" href="//cdn.amazeui.org/amazeui/2.1.0/css/amazeui.min.css">
+    <link rel="stylesheet" href="/css/am-md.css">
+    <link rel="stylesheet" href="/common/common-layout.css">
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+<div class="am-g am-g-fixed blog-g-fixed am-margin-top am-center">
+    <div class="am-u-md-12">
+        <form class="am-form">
+            <textarea data-am-md></textarea>
+            <button th:type="submit" class="am-btn am-btn-secondary">提交</button>
+        </form>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
